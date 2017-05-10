@@ -1,6 +1,7 @@
 // REQUIRE DEPENDENCIES
 // ============================================================
 var User = require('./../models/user');
+var pairCtrl = require('./pairCtrl');
 
 // EXPORT METHODS
 // ============================================================
@@ -39,17 +40,25 @@ module.exports = {
   update: function(req, res) {
     User.findByIdAndUpdate(req.params.id, req.body, function(err, user) {
       if (err) {
-        res.status(500).send(err);
+        return res.status(404).send(err);
       }
       res.status(200).send(user);
     });
   },
   delete: function(req, res) {
-    User.findByIdAndRemove(req.params.id, function(err, user) {
+    var id = req.params.id;
+
+    User.findByIdAndRemove(id, function(err, user) {
       if (err) {
-        res.status(500).send(err);
+        return res.status(404).send(err);
       }
-      res.status(200).send(user);
+
+      User.update({ partners: id }, { $pull: { partners: id } }, { multi: true }, function(err, users) {
+        if (err)
+          return res.status(404).send(err);
+
+          res.status(200).send(user);
+      });
     });
   }
 

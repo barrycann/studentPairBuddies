@@ -45,6 +45,7 @@ angular.module("app")
       userService.editUser(user._id, user)
         .then(function(response) {
           $scope.getUsers();
+          $scope.getPairs();
         });
     };
 
@@ -52,6 +53,7 @@ angular.module("app")
       userService.deleteUser(id)
         .then(function(response) {
           $scope.getUsers();
+          $scope.pair();
         });
     };
 
