@@ -1,0 +1,86 @@
+<div class="contain">
+  <div class="add">
+    <h1>New Student</h1>
+    <form ng-submit="addUser(newUser)">
+      <input
+        type="text"
+        name=""
+        value=""
+        placeholder="User Name"
+        ng-model="newUser"
+      >
+      <button type="submit" name="button">SUBMIT</button>
+    </form>
+  </div>
+
+  <div id="timer-float" ng-show="randomized">
+    <timer-dir reset="randomized"></timer-dir>
+  </div>
+
+  <br>
+  <hr>
+
+  <div class="middle">
+
+    <div class="half" ng-show="!expand">
+      <button
+        class="cornerButton"
+        type="button"
+        name="button"
+        ng-click="pair()"
+        ng-if="!pairs.length"
+      >PAIR</button>
+      <button
+        class="cornerButton"
+        type="button"
+        name="button"
+        ng-click="resetStudents()"
+        ng-if="randomized"
+      >Reset</button>
+      <button
+        class="cornerButton"
+        type="button"
+        name="button"
+        ng-click="randomize()"
+      >Randomize</button>
+
+      <h1>Students</h1>
+      <div
+        class="user"
+        ng-repeat="user in users track by $index"
+        ng-click="user.done = !user.done"
+        ng-class="{done: user.done}"
+      >
+        <h3>
+          <span ng-if="randomized">{{$index + 1}}. </span>{{user.name}}
+        </h3>
+      </div>
+    </div>
+
+    <div class="half" ng-if="pairs.length && !randomized">
+      <button
+        class="cornerButton"
+        type="button"
+        name="button"
+        ng-click="expandPairs()"
+      >
+        <span ng-show="!expand">Expand</span>
+        <span ng-show="expand">collapse</span>
+      </button>
+
+      <h1>Pairs</h1>
+      <div class="pair" ng-repeat="pair in pairs">
+        <h3>
+          {{pair[0].name}} /
+          <span ng-if="pair[1]">
+            {{pair[1].name}}
+          </span>
+          <span ng-if="!pair[1]">
+            Mentors
+          </span>
+        </h3>
+      </div>
+    </div>
+
+  </div>
+</div>

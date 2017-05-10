@@ -1,33 +1,50 @@
-var app = angular.module("app", ['ui.router'])
+// INITILIZE APP
+// ============================================================
+angular.module("app", ["ui.router"])
 
-.config(function($stateProvider, $urlRouterProvider) {
+  // CONFIG
+  // ============================================================
+  .config(function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/");
+    // INITILIZE STATES
+    // ============================================================
+    $stateProvider
 
-  $stateProvider
-    .state('home', {
-      url: "/",
-      templateUrl: "./app/routes/home/homeTmpl.html",
-      controller: 'homeCtrl'
-    }).state('login', {
-      url: '/login',
-      templateUrl: './app/routes/login/loginTmpl.html',
-      controller: 'loginCtrl'
-    }).state('profile', {
-      url: '/profile',
-      templateUrl: './app/routes/profile/profileTmpl.html',
-      controller: 'profileCtrl',
-      resolve: {
-        user: function(authService, $state) {
-          return authService.getCurrentUser().then(function(response) {
-            if (!response.data)
-              $state.go('login');
-            return response.data;
-          }).catch(function(err) {
-            $state.go('login');
-          });
+      // HOME STATE
+      .state('home', {
+        url: '/',
+        templateUrl: './app/routes/home/homeTmpl.html',
+        controller: 'homeCtrl'
+      })
+
+      // COHORTS STATE
+      .state('cohorts', {
+        url: '/cohorts',
+        templateUrl: './app/routes/cohorts/cohortsTmpl.html',
+        controller: 'cohortsCtrl',
+        resolve: {
+          cohorts: function(cohortService) {
+            return cohortService.getCohorts();
+          }
         }
-      }
-    });
+      })
 
-});
+      // STUDENTS STATE
+      .state('students', {
+        url: '/students/:cohort_id',
+        templateUrl: './app/routes/students/studentsTmpl.html',
+        controller: 'studentsCtrl',
+        resolve: {
+          pairs: function(cohortService, $stateParams) {
+            return cohortService.getPairs($stateParams.cohort_id);
+          }
+        }
+      });
+
+
+
+
+    // ASSIGN OTHERWISE
+    // ============================================================
+    $urlRouterProvider.otherwise('/cohorts');
+  });

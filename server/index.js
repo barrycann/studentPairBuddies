@@ -7,54 +7,44 @@ var mongoose = require('mongoose');
 // CONFIG //
 var config = require('./config');
 
-// CONTROLLERS //
-var UserCtrl = require('./controllers/UserCtrl');
-
-// SERVICES //
-var passport = require('./services/passport');
-
-
-// POLICIES //
-var isAuthed = function(req, res, next) {
-  if (!req.isAuthenticated()) return res.status(401).send();
-  return next();
-};
-
-
 // EXPRESS //
 var app = express();
 
-app.use(express.static(__dirname + './../public'));
+app.use(express.static(__dirname + './../dist'));
 app.use(bodyParser.json());
 
-// Session and passport
-app.use(session({
-  secret: config.SESSION_SECRET,
-  saveUninitialized: false,
-  resave: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+// CRON //
+var cron = require('./cron/cronJob.js');
+// cron.notify_cohorts();
+// cron.pair_up_students();
 
-// Passport Endpoints
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/me'
-}));
-app.get('/logout', function(req, res, next) {
-  req.logout();
-  return res.status(200).send('logged out');
-});
+// CONTROLLERS //
+var userCtrl = require('./controllers/userCtrl');
+var cohortCtrl = require('./controllers/cohortCtrl');
+var pairCtrl = require('./controllers/pairCtrl');
 
-// User Endpoints
-app.post('/register', UserCtrl.register);
-app.get('/user', UserCtrl.read);
-app.get('/me', isAuthed, UserCtrl.me);
-app.put('/user/:_id', isAuthed, UserCtrl.update);
+// USER ENDPOINTS
+app.get('/api/user', userCtrl.read);
+app.post('/api/user', userCtrl.add);
+app.put('/api/user/:id', userCtrl.update);
+app.delete('/api/user/:id', userCtrl.delete);
+
+// PAIR ENDPOINT
+app.put('/api/cohort/pair', pairCtrl.pair);
+
+// COHORT ENDPOINTS
+app.get('/api/cohort', cohortCtrl.read);
+app.post('/api/cohort', cohortCtrl.create);
+app.put('/api/cohort/:id', cohortCtrl.update);
+app.delete('/api/cohort/:id', cohortCtrl.delete);
+app.get('/api/cohort/pairs', cohortCtrl.getPairs);
+
 
 // CONNECTIONS //
 var mongoURI = config.MONGO_URI;
 var port = config.PORT;
 
+mongoose.Promise = global.Promise;
 mongoose.connect(mongoURI);
 mongoose.connection.once('open', function() {
   console.log('Connected to Mongo DB at', mongoURI);

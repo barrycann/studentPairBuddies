@@ -1,0 +1,65 @@
+.contain
+  box-sizing: border-box
+  padding: 20px 20px 0 20px
+  position: relative
+  height: calc(100vh - 20px)
+
+  #timer-float
+    position: absolute
+    top: 20px
+    right: 20px
+
+  h1
+    margin: 0
+
+  .reset
+    float: right
+    text-align: right
+
+  button
+    border: none
+    background-color: lightgreen
+    color: white
+    border-radius: 3px
+
+  .middle
+    display: flex
+    width: calc(100vw - 40px)
+    height: calc(100% - 150px)
+
+    .half:nth-child(2)
+      box-sizing: border-box
+      border-left: 1px solid black
+      padding-left: 10px
+
+    .half
+      flex: 1
+      height: 100%
+      overflow: auto
+
+      .cornerButton
+        float: right
+        margin-right: 20px
+
+      .pair
+        // display: inline-block
+
+      .pair:nth-child(2n)
+        background-color: lightgray
+
+      h3
+        margin: 0
+        padding: 10px
+        box-sizing: border-box
+
+  .user:nth-child(2n)
+    background-color: lightgray
+
+  .done
+    text-decoration: line-through
+    color: gray
+
+  .finalize
+    position: absolute
+    bottom: 20px
+    left: 20

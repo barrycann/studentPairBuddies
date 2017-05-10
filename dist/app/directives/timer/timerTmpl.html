@@ -1,0 +1,32 @@
+<div id="timer">
+  <div id="time">
+    <div id="display-time" ng-show="!change">
+      {{time}}
+    </div>
+
+    <form id="update-time" ng-show="change" ng-submit="setTime()">
+      <input type="number" max="59" min="0" ng-model="selectedMin">:
+      <input type="number" max="59" min="0" ng-model="selectedSec">
+
+      <button type="submit">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+      </button>
+    </form>
+
+    <span class="edit-icon" ng-show="!change" ng-click="change = !change">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </span>
+  </div>
+
+  <div class="buttons" ng-show="!change">
+    <button class="timer-btn" type="button" name="button" ng-click="start()">
+      <i class="fa fa-play" aria-hidden="true"></i>
+    </button>
+    <button class="timer-btn" type="button" name="button" ng-click="stop()">
+      <i class="fa fa-pause" aria-hidden="true"></i>
+    </button>
+    <button class="timer-btn" type="button" name="button" ng-click="reset()">
+      <i class="fa fa-refresh" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>

@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var concat = require("gulp-concat");
 var annotate = require("gulp-ng-annotate");
 var sass = require("gulp-sass");
-var nodemon = require('gulp-nodemon');
 
 var paths = {
 	jsSource: ['public/app/**/*.js'],
@@ -10,12 +9,6 @@ var paths = {
 	indexSource: ['public/**/*.html', 'public/**/*.css'],
 	server: ['server/index.js']
 };
-
-gulp.task('serve', function() {
-	nodemon({
-		'script': paths.server
-	});
-});
 
 gulp.task('sass', function() {
 	gulp.src(paths.sassSource)
