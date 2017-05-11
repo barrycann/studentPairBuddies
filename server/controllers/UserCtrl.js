@@ -1,7 +1,6 @@
 // REQUIRE DEPENDENCIES
 // ============================================================
 var User = require('./../models/user');
-var pairCtrl = require('./pairCtrl');
 
 // EXPORT METHODS
 // ============================================================
@@ -60,6 +59,24 @@ module.exports = {
           res.status(200).send(user);
       });
     });
+  },
+
+  // OTHER METHODS
+  // ============================================================
+  register: function(req, res) {
+    req.body.user_type = "mentor";
+
+    User.create(req.body, function(err, result) {
+      if(err) return res.status(500).send(err);
+      newUser = result.toObject();
+      delete newUser.password;
+      res.status(200).json(newUser);
+    });
+  },
+
+  me: function(req, res) {
+    if (!req.user) return res.status(401).send('current user not defined');
+    return res.status(200).json(req.user);
   }
 
 };
