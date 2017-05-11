@@ -1,6 +1,35 @@
+#timer {
+  display: inline-block; }
+  #timer #time {
+    display: inline-block;
+    position: relative;
+    height: 2.5em;
+    color: darkgray;
+    font-weight: bold; }
+    #timer #time #display-time {
+      display: inline-block;
+      font-size: 2.5em; }
+    #timer #time .edit-icon {
+      vertical-align: top;
+      display: inline-block;
+      cursor: pointer; }
+    #timer #time #update-time {
+      height: 100%;
+      font-size: 2em; }
+      #timer #time #update-time button {
+        font-size: 0.52em;
+        color: white; }
+  #timer .buttons {
+    display: flex;
+    justify-content: space-between; }
+
 .cohorts {
   box-sizing: border-box;
-  padding: 20px; }
+  padding: 20px;
+  color: #57bde8; }
+
+p {
+  color: #57bde8; }
 
 
 .contain {
@@ -52,28 +81,3 @@
     position: absolute;
     bottom: 20px;
     left: 20; }
-
-#timer {
-  display: inline-block; }
-  #timer #time {
-    display: inline-block;
-    position: relative;
-    height: 2.5em;
-    color: darkgray;
-    font-weight: bold; }
-    #timer #time #display-time {
-      display: inline-block;
-      font-size: 2.5em; }
-    #timer #time .edit-icon {
-      vertical-align: top;
-      display: inline-block;
-      cursor: pointer; }
-    #timer #time #update-time {
-      height: 100%;
-      font-size: 2em; }
-      #timer #time #update-time button {
-        font-size: 0.52em;
-        color: white; }
-  #timer .buttons {
-    display: flex;
-    justify-content: space-between; }
