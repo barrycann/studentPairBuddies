@@ -23,10 +23,14 @@
     display: flex;
     justify-content: space-between; }
 
-
 .cohorts {
   box-sizing: border-box;
-  padding: 20px; }
+  padding: 20px;
+  color: #57bde8; }
+
+p {
+  color: #57bde8; }
+
 
 .contain {
   box-sizing: border-box;
