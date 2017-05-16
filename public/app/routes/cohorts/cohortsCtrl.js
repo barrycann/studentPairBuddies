@@ -48,6 +48,7 @@ angular.module("app").controller("cohortsCtrl", function($scope, cohorts, cohort
   }
   $scope.closeModal = function(){
     $scope.toggle = true;
-  }
+  };
+
 
 });

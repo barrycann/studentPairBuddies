@@ -16,22 +16,32 @@
   </div>
 </div>-->
 <div class = "cohorts"> 
+
   <nav>
     <p><b>COHORTS</b></p>
   </nav>
 
   <div class = "container">
 
-    <div ng-repeat = "cohort in cohorts">
+    <div ng-repeat = "cohort in cohorts" ng-mouseover="cohortHover = true" ng-mouseleave="cohortHover = false">
       <div class = "cohort-names" ng-class-even="'even'">
-    
            <p>{{cohort.title}} </p>
-            <p> {{cohort.slack_channel}}</p>
-          
+           <p> {{cohort.slack_channel}} <input type="checkbox"/></p>
+          <div>
+
+        <div ng-show="cohortHover">
+          <button id="edit-btn">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+          <button id="delete-btn">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </div> 
+
+          </div>
+ 
       </div>
     </div>
-  
-
 
   </div>
 

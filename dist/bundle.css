@@ -117,6 +117,15 @@ nav {
   padding: 10px; }
   .cohort-names .middle {
     text-align: center; }
+  .cohort-names .fa {
+    background-color: inherit;
+    color: black; }
+  .cohort-names #edit-btn {
+    background-color: inherit; }
+  .cohort-names #delete-btn {
+    background-color: inherit; }
+  .cohort-names .fa-times {
+    color: #F44336; }
 
 
 button {
