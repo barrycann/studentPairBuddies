@@ -5,7 +5,8 @@ var cohort = new mongoose.Schema({
   title: { type: String },
   last_update: { type: Date },
   pairs: [[{type: objectId, ref: 'user'}]],
-  slack_channel: {type: String}
+  slack_channel: {type: String},
+  notify: {type: Boolean, default: true}
 });
 
 module.exports = mongoose.model('cohort', cohort);
