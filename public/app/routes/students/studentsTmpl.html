@@ -35,16 +35,19 @@
       <div class="students">
         <div class="student" ng-repeat="student in users" ng-mouseover="studentHover = true" ng-mouseleave="studentHover = false">
 
-          <form ng-show="student.editStudent" class="student-edit" ng-submit="student.name = tempStudentName; student.pair = tempStudentPair; updateUser(student)">
-            Pair up?: <input type="checkbox" ng-model="tempStudentPair">
-            Name: <input type="text" focus-on="student.editStudent" ng-model="tempStudentName" placeholder="Student Name">
+          <form ng-if="student.editStudent" class="student-edit" ng-submit="updateUser(student, tempStudentName, tempStudentPair)">
+            <span>Pair up?: <input type="checkbox" ng-model="tempStudentPair"></span>
 
-            <button type="submit" name="button">
-              <i class="fa fa-floppy-o" aria-hidden="true"></i>
-            </button>
-            <button type="button" name="button">
-              <i class="fa fa-times" aria-hidden="true" ng-click="student.editStudent = false; tempStudentName = ''"></i>
-            </button>
+            <span>
+              Name: <input type="text" focus-on="student.editStudent" ng-model="tempStudentName" placeholder="Student Name">
+
+              <button type="submit" name="button">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+              </button>
+              <button type="button" name="button">
+                <i class="fa fa-times" aria-hidden="true" ng-click="student.editStudent = false; tempStudentName = ''"></i>
+              </button>
+            </span>
           </form>
 
           <span ng-hide="student.editStudent" ng-click="student.slashed = !student.slashed" ng-class="{slashed: student.slashed && randomized}">
