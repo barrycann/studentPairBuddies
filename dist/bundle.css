@@ -32,14 +32,6 @@
       #timer .buttons {
         font-size: 0.5em; } }
 
-.cohorts {
-  box-sizing: border-box;
-  padding: 20px;
-  color: #57bde8; }
-
-p {
-  color: #57bde8; }
-
 
 button {
   background-color: #57bde8;
@@ -162,3 +154,11 @@ button {
         margin: 0; }
   .student-page #students-wrapper .students-wide {
     width: 80vw; }
+
+.cohorts {
+  box-sizing: border-box;
+  padding: 20px;
+  color: #57bde8; }
+
+p {
+  color: #57bde8; }
