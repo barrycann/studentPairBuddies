@@ -33,6 +33,9 @@ button
       left: 50%
       transform: translate(-50%, -50%)
 
+      @media(max-width: 550px)
+        font-size: 1.25em
+
     #timer-float
       position: absolute
       top: 50%
@@ -45,11 +48,20 @@ button
     display: flex
     justify-content: space-around
 
+    @media(max-width: 745px)
+      display: block
+      height: auto
+      padding: 5vh 10vw
+
     .half
       width: 40vw
       height: 80vh
       margin-top: 5vh
       position: relative
+
+      @media(max-width: 745px)
+        width: 80vw
+        margin: 0 0 5vh 0
 
       .students
         height: calc(80vh - 61px)
@@ -82,8 +94,8 @@ button
           background-color: darkgray
 
         .student-edit
-          .space
-            width: 20px
+            span
+              display: block
 
         .no-student
           position: relative

@@ -45,18 +45,31 @@ angular.module("app")
   			});
   	};
 
-    $scope.updateUser = function(user) {
+    $scope.updateUser = function(user, name, pair) {
+      if (!confirm('Are you sure you want to update this student?')) {
+        user.editStudent = false;
+        return;
+      }
+
       delete user.slashed;
       delete user.editStudent;
+      user.name = name;
+      user.pair = pair;
 
       userService.editUser(user._id, user)
         .then(function(response) {
           $scope.getUsers();
-          $scope.getPairs();
+          if (!user.pair) {
+            $scope.pair();
+          } else {
+            $scope.getPairs();
+          }
         });
     };
 
     $scope.deleteUser = function(id) {
+      if (!confirm('Are you sure you want to delete this student?')) return;
+
       userService.deleteUser(id)
         .then(function(response) {
           $scope.getUsers();
