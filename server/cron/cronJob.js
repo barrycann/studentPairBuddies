@@ -12,7 +12,7 @@ module.exports = {
       function () {
 
         Cohort
-          .find()
+          .find({notify: true})
           .populate({
             path: 'pairs',
             model: 'user'
@@ -57,7 +57,7 @@ module.exports = {
   pair_up_students: function() {
     console.log('Pairing CRON initiated');
     new Cron(
-      '*/60 * * * * 1-5',
+      '0 0 0 * * 1-5',
       pairCtrl.pair,
       null,
       true,
