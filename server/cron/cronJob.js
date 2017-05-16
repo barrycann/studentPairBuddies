@@ -12,7 +12,7 @@ module.exports = {
       function () {
 
         Cohort
-          .find()
+          .find({notify: true})
           .populate({
             path: 'pairs',
             model: 'user'

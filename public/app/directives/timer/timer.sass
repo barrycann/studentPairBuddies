@@ -1,11 +1,13 @@
+@import "../../../styles/colors"
+
 #timer
   display: inline-block
 
   #time
     display: inline-block
     position: relative
-    height: 2.5em
-    color: darkgray
+    height: 80%
+    color: $devMtnWhite
     font-weight: bold
 
     #display-time
@@ -20,6 +22,7 @@
     #update-time
       height: 100%
       font-size: 2em
+      color: $devMtnGrey
 
       button
         font-size: 0.52em
@@ -27,4 +30,4 @@
 
   .buttons
     display: flex
-    justify-content: space-between
+    justify-content: space-around
