@@ -34,11 +34,11 @@ nav
   width: 50vw;
   height: 70vh;
   background-color: #FFFFFF
-  overflow-y: scroll
+  overflow-y: auto
   overflow-x: hidden
   border-radius: 3px
   p 
-    margin: 0
+    margin: 0node
   .left
     float: left
     margin-left: 5vw
@@ -60,25 +60,23 @@ nav
   border-radius: 22px
   border: none
   outline: none
-
+.modal-form
+  display: flex
+  flex-direction: column
+.modal-close
+  float: right
+  border: none
+  background-color: white
+  outline: none
+  color: black
+.modal
+  width: 50vw
+  height: 36vh
+  background-color: white
+  margin-top: 63px
+  border-radius: 10px
+  padding: 5%
 .outer-modal
-  .modal
-    width: 50vw
-    height: 36vh
-    background-color: white
-    margin-top: 63px
-    border-radius: 10px
-    padding: 5%
-  .modal-form
-    display: flex
-    flex-direction: column
-  .modal-close
-    float: right
-    border: none
-    background-color: white
-    outline: none
-    color: black
-
   height: calc(100vh + 63px)
   width: 100vw
   position: absolute
@@ -91,6 +89,7 @@ nav
 .even
   background-color: grey
 .cohort-names
+  align-items: center
   display: flex
   flex-direction: row
   justify-content: space-between
@@ -107,4 +106,13 @@ nav
   .fa-times
     color: $queRed
 
-    
+.update-modal
+  height: calc(100vh + 63px)
+  width: 100vw
+  position: absolute
+  margin-top: -63px
+  z-index: 1
+  background-color: rgba(15, 15, 15, 0.89)
+  display: flex
+  align-items: center
+  justify-content: center
