@@ -23,7 +23,7 @@ angular.module("app").service("cohortService", function($http) {
       data: cohort
     });
   };
-  this.editCohort = function(id, cohort) {
+  this.editCohort = function(id, cohort) {    
     return $http({
       method: 'PUT',
       url: "/api/cohort/" + id,
@@ -52,5 +52,18 @@ angular.module("app").service("cohortService", function($http) {
       url: `/api/cohort/pair/?_id=${id}`
     });
   };
+
+  ////////////////////////////////////////
+  this.updateSlackNotifications = function(id, value){
+    console.log(id)
+    console.log(value);
+    return $http({
+      method: "PUT",
+      url: "/api/cohort/" + id,
+      data: {
+        notify: value
+      }
+    })
+  }
 
 });
