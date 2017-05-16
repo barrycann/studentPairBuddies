@@ -35,9 +35,9 @@
       <div class="students">
         <div class="student" ng-repeat="student in users" ng-mouseover="studentHover = true" ng-mouseleave="studentHover = false">
 
-          <form ng-if="student.editStudent" class="student-edit" ng-submit="student.name = tempStudentName; student.pair = tempStudentPair; updateUser(student)">
+          <form ng-if="student.editStudent" class="student-edit" ng-submit="updateUser(student, tempStudentName, tempStudentPair)">
             <span>Pair up?: <input type="checkbox" ng-model="tempStudentPair"></span>
-            
+
             <span>
               Name: <input type="text" focus-on="student.editStudent" ng-model="tempStudentName" placeholder="Student Name">
 
