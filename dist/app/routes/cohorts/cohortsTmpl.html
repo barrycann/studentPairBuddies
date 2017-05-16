@@ -1,4 +1,4 @@
-<div class="cohorts">
+<!--<div class="cohorts">
   <form class="" ng-submit="addCohort(newCohort)">
     <h1>New Cohort</h1>
     Title: <input type="text" name="" value="" ng-model="newCohort.title">
@@ -14,11 +14,40 @@
     <button type="button" name="button" ng-click="updateCohort(cohort)">update</button>
     <button type="button" name="button" ng-click="deleteCohort(cohort._id)">X</button>
   </div>
-</div>
-<div class = "container">
+</div>-->
+<div class = "cohorts"> 
+  <nav>
+    <p><b>COHORTS</b></p>
+  </nav>
 
-  <div ng-repeat = "cohort in cohorts">
-    <p>{{cohort.title}} {{cohort.slack_channel}}</p>
+  <div class = "container">
+
+    <div ng-repeat = "cohort in cohorts">
+      <div class = "cohort-names">
+    
+           <p class="left">{{cohort.title}}</p>
+           <p class="right"> {{cohort.slack_channel}}</p>
+          
+      </div>
+    </div>
+  
+
+
   </div>
 
+  <div class = "outer-modal" ng-hide="toggle">
+    <div class = "modal">
+      <button class= "modal-close" ng-click="closeModal()"><b>X</b></button>
+      <h1>New Cohort</h1>
+      <form class="modal-form" ng-submit="addCohort(newCohort)">
+        Title: <input type="text" name="" value="" ng-model="newCohort.title">
+        Slack Channel: <input type="text" name="" value="" ng-model="newCohort.slack_channel"><br>
+        <button type="submit" name="button" ng-click="closeModal()">Add Cohort</button>
+      </form>
+    </div>
+  </div>
+
+  <button class="add-cohort" ng-click="openModal()">+</button>
+
 </div>
+

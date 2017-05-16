@@ -26,10 +26,88 @@
 .cohorts {
   box-sizing: border-box;
   padding: 20px;
-  color: #57bde8; }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #536b74;
+  height: calc(100vh - 63px);
+  margin-top: 63px; }
+  .cohorts .cohort-names:nth-child(odd) {
+    background-color: grey !important; }
+  .cohorts .cohort-names:nth-child(even) {
+    background-color: white !important; }
 
-p {
-  color: #57bde8; }
+nav {
+  width: 100vw;
+  height: 63px;
+  position: absolute;
+  top: 0;
+  background-color: #444444;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  nav p {
+    color: white;
+    font-size: 2em; }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 70vh;
+  background-color: #FFFFFF;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 3px; }
+  .container p {
+    margin: 0; }
+  .container .left {
+    float: left;
+    margin-left: 5vw; }
+  .container .right {
+    float: right;
+    margin-right: 5vw; }
+
+.add-cohort {
+  float: right;
+  position: absolute;
+  bottom: 0;
+  right: 25vw;
+  margin: 0;
+  top: 90vh;
+  font-size: 2em;
+  height: 6vh;
+  width: 6vh;
+  border-radius: 22px;
+  border: none;
+  outline: none; }
+
+.outer-modal {
+  height: calc(100vh + 63px);
+  width: 100vw;
+  position: absolute;
+  margin-top: -63px;
+  z-index: 1;
+  background-color: rgba(15, 15, 15, 0.89);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .outer-modal .modal {
+    width: 50vw;
+    height: 36vh;
+    background-color: white;
+    margin-top: 63px;
+    border-radius: 10px;
+    padding: 5%; }
+  .outer-modal .modal-form {
+    display: flex;
+    flex-direction: column; }
+  .outer-modal .modal-close {
+    float: right;
+    border: none;
+    background-color: white;
+    outline: none; }
 
 
 .contain {

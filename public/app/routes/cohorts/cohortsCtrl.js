@@ -40,4 +40,14 @@ angular.module("app").controller("cohortsCtrl", function($scope, cohorts, cohort
       });
   };
 
+  ///////////////////////
+  $scope.toggle = true;
+
+  $scope.openModal = function(){
+     $scope.toggle = false;
+  }
+  $scope.closeModal = function(){
+    $scope.toggle = true;
+  }
+
 });
