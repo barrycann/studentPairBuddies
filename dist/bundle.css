@@ -34,10 +34,6 @@
   background-color: #536b74;
   height: calc(100vh - 63px);
   margin-top: 63px; }
-  .cohorts .cohort-names:nth-child(odd) {
-    background-color: grey !important; }
-  .cohorts .cohort-names:nth-child(even) {
-    background-color: white !important; }
 
 nav {
   width: 100vw;
@@ -108,7 +104,19 @@ nav {
     float: right;
     border: none;
     background-color: white;
-    outline: none; }
+    outline: none;
+    color: black; }
+
+.even {
+  background-color: grey; }
+
+.cohort-names {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px; }
+  .cohort-names .middle {
+    text-align: center; }
 
 
 button {

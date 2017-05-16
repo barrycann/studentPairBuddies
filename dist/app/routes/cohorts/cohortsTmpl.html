@@ -23,10 +23,10 @@
   <div class = "container">
 
     <div ng-repeat = "cohort in cohorts">
-      <div class = "cohort-names">
+      <div class = "cohort-names" ng-class-even="'even'">
     
-           <p class="left">{{cohort.title}}</p>
-           <p class="right"> {{cohort.slack_channel}}</p>
+           <p>{{cohort.title}} </p>
+            <p> {{cohort.slack_channel}}</p>
           
       </div>
     </div>

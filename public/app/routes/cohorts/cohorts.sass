@@ -7,20 +7,20 @@
   align-items: center
   justify-content: center
   flex-direction: column
-  background-color: $queueBlue
+  background-color: $queBlue
   height: calc(100vh - 63px);
   margin-top: 63px;
-  .cohort-names:nth-child(odd)
-    background-color: grey !important
-  .cohort-names:nth-child(even)
-    background-color: white !important
+  // .cohort-names:nth-child(odd)
+  //   background-color: grey !important
+  // .cohort-names:nth-child(even)
+  //   background-color: white !important
 
 nav 
   width: 100vw
   height: 63px
   position: absolute
   top: 0
-  background-color: $queueGrey
+  background-color: $queGrey
   display: flex
   justify-content: center;
   align-items: center;
@@ -77,6 +77,8 @@ nav
     border: none
     background-color: white
     outline: none
+    color: black
+
   height: calc(100vh + 63px)
   width: 100vw
   position: absolute
@@ -86,3 +88,13 @@ nav
   display: flex
   align-items: center
   justify-content: center
+.even
+  background-color: grey
+.cohort-names
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  padding: 10px
+  .middle
+    text-align: center
+    
