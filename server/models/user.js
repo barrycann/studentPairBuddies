@@ -8,7 +8,8 @@ var user = new mongoose.Schema({
   password: { type: String },
   partners: [{type: objectId, ref: "user"}],
   cohort: {type: objectId, ref: 'cohort'},
-  user_type: {type: String, default: 'student', enum: ['student', 'mentor', 'admin']}
+  user_type: {type: String, default: 'student', enum: ['student', 'mentor', 'admin']},
+  pair: {type: Boolean, default: true}
 });
 
 user.pre('save', function(next) {

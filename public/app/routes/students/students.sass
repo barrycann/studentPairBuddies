@@ -1,65 +1,137 @@
-.contain
-  box-sizing: border-box
-  padding: 20px 20px 0 20px
-  position: relative
-  height: calc(100vh - 20px)
+@import "../../../styles/colors"
 
-  #timer-float
-    position: absolute
-    top: 20px
-    right: 20px
+button
+  background-color: $devMtnBlue
+  border: 0px
+  color: white
+  border-radius: 3px
+  font-size: 1em
 
-  h1
-    margin: 0
+.student-page
 
-  .reset
-    float: right
-    text-align: right
+  #students-nav
+    height: 10vh
+    background-color: $queGrey
+    position: relative
+    font-family: Arial
 
-  button
-    border: none
-    background-color: lightgreen
-    color: white
-    border-radius: 3px
+    #backArrow
+      color: $devMtnWhite
+      font-size: 1.5em
+      position: absolute
+      top: 50%
+      left: 10px
+      transform: translate(0, -50%)
+      cursor: pointer
 
-  .middle
+    .page-name
+      font-weight: bold
+      font-size: 2em
+      color: $devMtnWhite
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+    #timer-float
+      position: absolute
+      top: 50%
+      right: 10px
+      transform: translate(0, -50%)
+
+  #students-wrapper
+    height: 90vh
+    background: $queBlue
     display: flex
-    width: calc(100vw - 40px)
-    height: calc(100% - 150px)
-
-    .half:nth-child(2)
-      box-sizing: border-box
-      border-left: 1px solid black
-      padding-left: 10px
+    justify-content: space-around
 
     .half
-      flex: 1
-      height: 100%
-      overflow: auto
+      width: 40vw
+      height: 80vh
+      margin-top: 5vh
+      position: relative
 
-      .cornerButton
-        float: right
-        margin-right: 20px
+      .students
+        height: calc(80vh - 61px)
+        width: 100%
+        background: $devMtnWhite
+        overflow: auto
 
-      .pair
-        // display: inline-block
+        .student
+          position: relative
+          text-align: center
+          font-size: 1.25em
+          font-weight: bold
+          box-sizing: border-box
+          padding: 5px
+          background-color: $devMtnWhite
 
-      .pair:nth-child(2n)
-        background-color: lightgray
+        .slashed
+          text-decoration: line-through
 
-      h3
-        margin: 0
-        padding: 10px
-        box-sizing: border-box
+        .student-delete
+          position: absolute
+          top: 50%
+          right: 0
+          transform: translate(-50%, -50%)
 
-  .user:nth-child(2n)
-    background-color: lightgray
+          .fa-times
+            color: $queRed
 
-  .done
-    text-decoration: line-through
-    color: gray
+        .student:nth-child(2n)
+          background-color: darkgray
 
-  .finalize
-    position: absolute
-    bottom: 20px
-    left: 20
+        .student-edit
+          .space
+            width: 20px
+
+        .no-student
+          position: relative
+          height: 100%
+
+          h1
+            position: absolute
+            top: 45%
+            left: 50%
+            transform: translate(-50%, -50%)
+
+      .new-student
+        color: $devMtnWhite
+        margin-bottom: 10px
+
+        h2
+          margin: 0
+
+        input
+          border: none
+          color: black
+
+        .student-buttons
+          float: right
+
+      .pairs
+        background-color: white
+        width: 100%
+        height: calc(80vh - 61px)
+        overflow: auto
+        position: absolute
+        bottom: 0
+        left: 0
+
+        .pair
+          font-size: 1.25em
+          font-weight: bold
+          text-align: center
+          padding: 5px 0
+
+        .pair:nth-child(2n)
+          background-color: darkgray
+
+      .pairs-title
+        color: $devMtnWhite
+
+        h2
+          margin: 0
+
+    .students-wide
+      width: 80vw

@@ -3,8 +3,8 @@
   #timer #time {
     display: inline-block;
     position: relative;
-    height: 2.5em;
-    color: darkgray;
+    height: 80%;
+    color: #FFFFFF;
     font-weight: bold; }
     #timer #time #display-time {
       display: inline-block;
@@ -15,13 +15,14 @@
       cursor: pointer; }
     #timer #time #update-time {
       height: 100%;
-      font-size: 2em; }
+      font-size: 2em;
+      color: #262626; }
       #timer #time #update-time button {
         font-size: 0.52em;
         color: white; }
   #timer .buttons {
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-around; }
 
 .cohorts {
   box-sizing: border-box;
@@ -110,52 +111,112 @@ nav {
     outline: none; }
 
 
-.contain {
-  box-sizing: border-box;
-  padding: 20px 20px 0 20px;
+button {
+  background-color: #57bde8;
+  border: 0px;
+  color: white;
+  border-radius: 3px;
+  font-size: 1em; }
+
+.student-page #students-nav {
+  height: 10vh;
+  background-color: #444444;
   position: relative;
-  height: calc(100vh - 20px); }
-  .contain #timer-float {
+  font-family: Arial; }
+  .student-page #students-nav #backArrow {
+    color: #FFFFFF;
+    font-size: 1.5em;
     position: absolute;
-    top: 20px;
-    right: 20px; }
-  .contain h1 {
-    margin: 0; }
-  .contain .reset {
-    float: right;
-    text-align: right; }
-  .contain button {
-    border: none;
-    background-color: lightgreen;
-    color: white;
-    border-radius: 3px; }
-  .contain .middle {
-    display: flex;
-    width: calc(100vw - 40px);
-    height: calc(100% - 150px); }
-    .contain .middle .half:nth-child(2) {
-      box-sizing: border-box;
-      border-left: 1px solid black;
-      padding-left: 10px; }
-    .contain .middle .half {
-      flex: 1;
-      height: 100%;
+    top: 50%;
+    left: 10px;
+    transform: translate(0, -50%);
+    cursor: pointer; }
+  .student-page #students-nav .page-name {
+    font-weight: bold;
+    font-size: 2em;
+    color: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .student-page #students-nav #timer-float {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%); }
+
+.student-page #students-wrapper {
+  height: 90vh;
+  background: #536b74;
+  display: flex;
+  justify-content: space-around; }
+  .student-page #students-wrapper .half {
+    width: 40vw;
+    height: 80vh;
+    margin-top: 5vh;
+    position: relative; }
+    .student-page #students-wrapper .half .students {
+      height: calc(80vh - 61px);
+      width: 100%;
+      background: #FFFFFF;
       overflow: auto; }
-      .contain .middle .half .cornerButton {
-        float: right;
-        margin-right: 20px; }
-      .contain .middle .half .pair:nth-child(2n) {
-        background-color: lightgray; }
-      .contain .middle .half h3 {
-        margin: 0;
-        padding: 10px;
-        box-sizing: border-box; }
-  .contain .user:nth-child(2n) {
-    background-color: lightgray; }
-  .contain .done {
-    text-decoration: line-through;
-    color: gray; }
-  .contain .finalize {
-    position: absolute;
-    bottom: 20px;
-    left: 20; }
+      .student-page #students-wrapper .half .students .student {
+        position: relative;
+        text-align: center;
+        font-size: 1.25em;
+        font-weight: bold;
+        box-sizing: border-box;
+        padding: 5px;
+        background-color: #FFFFFF; }
+      .student-page #students-wrapper .half .students .slashed {
+        text-decoration: line-through; }
+      .student-page #students-wrapper .half .students .student-delete {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-50%, -50%); }
+        .student-page #students-wrapper .half .students .student-delete .fa-times {
+          color: #F44336; }
+      .student-page #students-wrapper .half .students .student:nth-child(2n) {
+        background-color: darkgray; }
+      .student-page #students-wrapper .half .students .student-edit .space {
+        width: 20px; }
+      .student-page #students-wrapper .half .students .no-student {
+        position: relative;
+        height: 100%; }
+        .student-page #students-wrapper .half .students .no-student h1 {
+          position: absolute;
+          top: 45%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+    .student-page #students-wrapper .half .new-student {
+      color: #FFFFFF;
+      margin-bottom: 10px; }
+      .student-page #students-wrapper .half .new-student h2 {
+        margin: 0; }
+      .student-page #students-wrapper .half .new-student input {
+        border: none;
+        color: black; }
+      .student-page #students-wrapper .half .new-student .student-buttons {
+        float: right; }
+    .student-page #students-wrapper .half .pairs {
+      background-color: white;
+      width: 100%;
+      height: calc(80vh - 61px);
+      overflow: auto;
+      position: absolute;
+      bottom: 0;
+      left: 0; }
+      .student-page #students-wrapper .half .pairs .pair {
+        font-size: 1.25em;
+        font-weight: bold;
+        text-align: center;
+        padding: 5px 0; }
+      .student-page #students-wrapper .half .pairs .pair:nth-child(2n) {
+        background-color: darkgray; }
+    .student-page #students-wrapper .half .pairs-title {
+      color: #FFFFFF; }
+      .student-page #students-wrapper .half .pairs-title h2 {
+        margin: 0; }
+  .student-page #students-wrapper .students-wide {
+    width: 80vw; }

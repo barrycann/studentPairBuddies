@@ -88,7 +88,7 @@ module.exports = {
       if (err)
         return console.log('Can\'t find cohorts in pair_up_students CRON job: ', err);
 
-      User.find({user_type: 'student'}, function(err, students) {
+      User.find({user_type: 'student', pair: true}, function(err, students) {
         if (err)
           return console.log('Can\'t find users in pair_up_students CRON job: ', err);
 
