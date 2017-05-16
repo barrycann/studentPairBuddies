@@ -20,9 +20,17 @@
       #timer #time #update-time button {
         font-size: 0.52em;
         color: white; }
+    @media (max-width: 550px) {
+      #timer #time {
+        font-size: 0.5em; }
+        #timer #time button {
+          font-size: 0.75em; } }
   #timer .buttons {
     display: flex;
     justify-content: space-around; }
+    @media (max-width: 550px) {
+      #timer .buttons {
+        font-size: 0.5em; } }
 
 .cohorts {
   box-sizing: border-box;
@@ -61,6 +69,9 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
+    @media (max-width: 550px) {
+      .student-page #students-nav .page-name {
+        font-size: 1.25em; } }
   .student-page #students-nav #timer-float {
     position: absolute;
     top: 50%;
@@ -72,11 +83,20 @@ button {
   background: #536b74;
   display: flex;
   justify-content: space-around; }
+  @media (max-width: 745px) {
+    .student-page #students-wrapper {
+      display: block;
+      height: auto;
+      padding: 5vh 10vw; } }
   .student-page #students-wrapper .half {
     width: 40vw;
     height: 80vh;
     margin-top: 5vh;
     position: relative; }
+    @media (max-width: 745px) {
+      .student-page #students-wrapper .half {
+        width: 80vw;
+        margin: 0 0 5vh 0; } }
     .student-page #students-wrapper .half .students {
       height: calc(80vh - 61px);
       width: 100%;
@@ -101,8 +121,8 @@ button {
           color: #F44336; }
       .student-page #students-wrapper .half .students .student:nth-child(2n) {
         background-color: darkgray; }
-      .student-page #students-wrapper .half .students .student-edit .space {
-        width: 20px; }
+      .student-page #students-wrapper .half .students .student-edit span {
+        display: block; }
       .student-page #students-wrapper .half .students .no-student {
         position: relative;
         height: 100%; }
