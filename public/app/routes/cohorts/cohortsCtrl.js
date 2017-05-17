@@ -26,8 +26,9 @@ angular.module("app").controller("cohortsCtrl", function($scope, $state, cohorts
       });
   };
 
-  $scope.updateCohort = function(cohort) {
-    cohortService.editCohort(cohort._id, cohort)
+  $scope.updateCohort = function(id, cohort) {
+    console.log(cohort + " ID SHOULD BE HERE")
+    cohortService.editCohort(id, cohort)
       .then(function(response) {
         $scope.getCohorts();
       });
@@ -45,6 +46,31 @@ angular.module("app").controller("cohortsCtrl", function($scope, $state, cohorts
     .then(function(response){
       $state.go('home')
     })
+  }
+
+  $scope.toggle = true;
+
+  $scope.openModal = function(){
+     $scope.toggle = false;
+  }
+  $scope.closeModal = function(){
+    $scope.toggle = true;
+  };
+
+  $scope.switch = true;
+
+  $scope.openUpdateModal = function(cohort){
+     $scope.specCohort = cohort;
+     $scope.switch = false;
+  }
+  $scope.closeUpdateModal = function(){
+    $scope.switch = true;
+  };
+
+  $scope.checkd = false;
+
+  $scope.updateSlackNotifications = function(id, value){
+    cohortService.updateSlackNotifications(id, value);
   }
 
 });
