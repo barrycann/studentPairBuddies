@@ -1,17 +1,43 @@
+@import "../../../styles/colors"
+
+.home-nav
+  height: 80px
+  background-color: $queGrey
+  position: relative
+  font-family: Arial
+  .contain
+    margin: 0 auto
+    width: 300px
+    margin: 0 auto
+    img
+      width: 45px
+  .nav-elem
+    display: inline-block
+    line-height: 72px;
+    vertical-align: middle
+    padding: 5px
+  .title
+    font-weight: bold
+    font-size: 1.4em
+    color: $devMtnWhite
+
 .main
-  padding-top: 40px
-  width: 100%
-  text-align: center
+  background: $queBlue
+  height: 90vh
+  img
+    margin-top: 12vh
+    position: relative
+    left: 50%
+    transform: translate(-50%, 0)
 
 .login
-  width: 60%
-  border: 1px solid #ccc
+  width: 200px
+  border: 1px solid #aaa
   padding: 30px
-  margin: 20px auto
+  margin: 0 auto
   form
     font-size: 14px
     min-width: 200px
-    max-width: 50%
     margin: 0 auto
     input
       box-sizing: border-box

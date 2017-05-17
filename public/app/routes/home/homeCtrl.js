@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("app").controller("homeCtrl", function($scope, loginService) {
+angular.module("app").controller("homeCtrl", function($scope, $state, loginService) {
 
   // VARIABLES
   // ============================================================
@@ -10,7 +10,8 @@ angular.module("app").controller("homeCtrl", function($scope, loginService) {
   // ============================================================
   $scope.login = function(user){
     loginService.login(user).then(function(response){
-      if(!response.data){
+      console.log(response)
+      if(!response.data.username){
         alert('User does not exist')
         $scope.user.password = ''
       } else {
