@@ -1,6 +1,6 @@
 // INITILIZE CONTROLLER
 // ============================================================
-angular.module("app").controller("cohortsCtrl", function($scope, cohorts, cohortService) {
+angular.module("app").controller("cohortsCtrl", function($scope, $state, cohorts, cohortService, loginService) {
 
   // VARIABLES
   // ============================================================
@@ -41,7 +41,13 @@ angular.module("app").controller("cohortsCtrl", function($scope, cohorts, cohort
       });
   };
 
-  ///////////////////////
+  $scope.logout = function(){
+    loginService.logout()
+    .then(function(response){
+      $state.go('home')
+    })
+  }
+
   $scope.toggle = true;
 
   $scope.openModal = function(){
