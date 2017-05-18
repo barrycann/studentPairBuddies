@@ -67,8 +67,6 @@ angular.module("app").controller("cohortsCtrl", function($scope, $state, cohorts
     $scope.switch = true;
   };
 
-  // $scope.checkd = true;
-
   $scope.updateSlackNotifications = function(id, value){
     cohortService.updateSlackNotifications(id, value);
   }
